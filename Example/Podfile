@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FlatActionSheet_Example' do
+  pod 'FlatActionSheet', :path => '../'
+
+  target 'FlatActionSheet_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

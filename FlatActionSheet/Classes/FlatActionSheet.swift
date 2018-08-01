@@ -32,6 +32,7 @@ open class FlatActionSheet: UIView {
         
         super.init(frame: frame)
         
+        setupView()
         setupTableView()
         
         addViews()
@@ -46,6 +47,7 @@ open class FlatActionSheet: UIView {
         
         super.init(coder: aDecoder)
     
+        setupView()
         setupTableView()
         
         addViews()
@@ -82,5 +84,6 @@ private extension FlatActionSheet {
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        tableView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
 }

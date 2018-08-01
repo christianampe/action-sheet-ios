@@ -15,6 +15,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		8203ACC77C929FCC4C93316F /* Pods_FlatActionSheet_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3444AFD2CB67EB6000232D65 /* Pods_FlatActionSheet_Tests.framework */; };
+		BF0C89F82111909B00CE1716 /* sample-screenshot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF0C89F72111909B00CE1716 /* sample-screenshot.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		9B54D40F761E0CBAEB15D4DC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A89C4962A93FCB010D4C310B /* Pods-FlatActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatActionSheet_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlatActionSheet_Tests/Pods-FlatActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE5012DDB6C169709FFFEE3C /* Pods-FlatActionSheet_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatActionSheet_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlatActionSheet_Tests/Pods-FlatActionSheet_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		BF0C89F72111909B00CE1716 /* sample-screenshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sample-screenshot.jpg"; sourceTree = "<group>"; };
 		DFE328A22814C7DDC006A92E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E572A04B947133DCA5D8F04A /* Pods_FlatActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatActionSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,11 +104,9 @@
 		607FACD21AFB9204008FA782 /* Example for FlatActionSheet */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				BF0C89F421118DE300CE1716 /* Source */,
+				BF0C89F321118DDD00CE1716 /* Interface */,
+				BF0C89F221118DD100CE1716 /* Utility */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for FlatActionSheet";
@@ -146,6 +146,49 @@
 				DFE328A22814C7DDC006A92E /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BF0C89F221118DD100CE1716 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BF0C89F62111909000CE1716 /* Images */,
+				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		BF0C89F321118DDD00CE1716 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		BF0C89F421118DE300CE1716 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BF0C89F521118DE800CE1716 /* Controller */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		BF0C89F521118DE800CE1716 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				607FACD71AFB9204008FA782 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BF0C89F62111909000CE1716 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF0C89F72111909B00CE1716 /* sample-screenshot.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		D0B1C31FA37D7FA592EDF37A /* Pods */ = {
@@ -246,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				BF0C89F82111909B00CE1716 /* sample-screenshot.jpg in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);

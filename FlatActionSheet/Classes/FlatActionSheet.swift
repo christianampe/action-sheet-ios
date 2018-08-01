@@ -11,7 +11,10 @@ import Foundation
 open class FlatActionSheet: UIView {
     
     // MARK: Views
-    weak var tableView: UITableView!
+    public weak var tableView: UITableView!
+    
+    // MARK: Properties
+    public var actions: [FlatActionSheetAction] = []
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -86,4 +89,10 @@ private extension FlatActionSheet {
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         tableView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
+}
+
+extension FlatActionSheet: FlatActionSheetDataSource {
+    public func addAction(_ action: FlatActionSheetAction) {
+        actions.append(action)
+    } 
 }

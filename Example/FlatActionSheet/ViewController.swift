@@ -16,6 +16,16 @@ class ViewController: UIViewController {
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.checkAction)))
+        
+        actionSheet.removeFromSuperview()
+    }
+}
+
+extension ViewController {
+    @objc func checkAction(sender : UITapGestureRecognizer) {
+        
     }
 }
 

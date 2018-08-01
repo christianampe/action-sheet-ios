@@ -7,6 +7,5 @@ target 'FlatActionSheet_Example' do
   target 'FlatActionSheet_Tests' do
     inherit! :search_paths
 
-    
   end
 end

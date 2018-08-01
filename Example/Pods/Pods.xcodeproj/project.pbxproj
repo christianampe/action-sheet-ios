@@ -14,6 +14,7 @@
 		9DCE9623E02396AF6F99821C50C6E88A /* Pods-FlatActionSheet_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4CE72AB326F4554D8CBC84E1A03F /* Pods-FlatActionSheet_Example-dummy.m */; };
 		AAA1B54BF994679F3669BA04A79E8300 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B684D14BA1D6756AAA0787562CC9709A /* Pods-FlatActionSheet_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B25FBBB529C8624A59F6FC9C36B94366 /* Pods-FlatActionSheet_Tests-dummy.m */; };
+		BF0C89F1211185AD00CE1716 /* FlatActionSheetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */; };
 		D8FAD73E54E8314A38F4DA05D62C7E8C /* FlatActionSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3582BDDB4F6ECDA8F474F6959CBD563 /* FlatActionSheet-dummy.m */; };
 		DC42190B43DA3D07F1F3794D1E96DD75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		DCCB0602F4D7EBABEDC02E85D1CE99B8 /* FlatActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED02ADBC8B4A46A2C1FA9A4761B3FEC /* FlatActionSheet.swift */; };
@@ -38,19 +39,19 @@
 
 /* Begin PBXFileReference section */
 		08A514A651E5964295C451A2DA389D82 /* FlatActionSheet-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatActionSheet-prefix.pch"; sourceTree = "<group>"; };
-		0D081B1AB87CF70E675E544CE6C00885 /* Pods_FlatActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FlatActionSheet_Tests.framework; path = "Pods-FlatActionSheet_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D081B1AB87CF70E675E544CE6C00885 /* Pods_FlatActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatActionSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D20AB110E14CD7DC6D222499FB73F62 /* FlatActionSheet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FlatActionSheet.modulemap; sourceTree = "<group>"; };
 		121DA2DCAA4E6119821CE0F905A422EC /* Pods-FlatActionSheet_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlatActionSheet_Example.modulemap"; sourceTree = "<group>"; };
 		1D6359A7BF9390DDC9C30FC384F9541C /* Pods-FlatActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CFFBA1BC606FDC2AEB75743D4EE37D6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D7C4342F670F223263A34CCFFDD1522 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2D7C4342F670F223263A34CCFFDD1522 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2DC3248E053DB2000C9B3726E0C38083 /* Pods-FlatActionSheet_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatActionSheet_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		33DF4CE72AB326F4554D8CBC84E1A03F /* Pods-FlatActionSheet_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatActionSheet_Example-dummy.m"; sourceTree = "<group>"; };
 		3BBD4624486DA5C01FEDBB62667E5ECC /* Pods-FlatActionSheet_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatActionSheet_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		4BA9A77F1897C740F710867E1CF52FF8 /* Pods_FlatActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FlatActionSheet_Example.framework; path = "Pods-FlatActionSheet_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BA9A77F1897C740F710867E1CF52FF8 /* Pods_FlatActionSheet_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatActionSheet_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED02ADBC8B4A46A2C1FA9A4761B3FEC /* FlatActionSheet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlatActionSheet.swift; path = FlatActionSheet/Classes/FlatActionSheet.swift; sourceTree = "<group>"; };
 		60EDD14A8B3B786E253462C1792E192F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61DE4AA60D79282CA3F1617995010F67 /* FlatActionSheet.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = FlatActionSheet.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		61DE4AA60D79282CA3F1617995010F67 /* FlatActionSheet.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = FlatActionSheet.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		643A1F54B06055D181F9983C20671970 /* Pods-FlatActionSheet_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatActionSheet_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6AEA63C4EEBA7E843729D93F3380C1D8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,15 +59,16 @@
 		7CB496098FE0E275EF7DA158899EA39A /* Pods-FlatActionSheet_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatActionSheet_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		85EA1FA5A286AF761E57432C89666CEE /* Pods-FlatActionSheet_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlatActionSheet_Tests.modulemap"; sourceTree = "<group>"; };
 		8C37E275FF582FA0D18BE08F35127459 /* Pods-FlatActionSheet_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatActionSheet_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9C5047C666AEA7B9EFFBAC23374F94CC /* FlatActionSheet.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlatActionSheet.xcconfig; sourceTree = "<group>"; };
-		AD6B429DC60392B2D4682248167CA524 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		AD6B429DC60392B2D4682248167CA524 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B25FBBB529C8624A59F6FC9C36B94366 /* Pods-FlatActionSheet_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatActionSheet_Tests-dummy.m"; sourceTree = "<group>"; };
 		B4398F69CA2733E2EE7832BB15F67BAE /* Pods-FlatActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BD26BD878F6E3B2A27785BE4CF787286 /* Pods-FlatActionSheet_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Tests-resources.sh"; sourceTree = "<group>"; };
+		BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetDelegate.swift; sourceTree = "<group>"; };
 		BF5E93A91B1870FA1843427F445C437E /* Pods-FlatActionSheet_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Example-frameworks.sh"; sourceTree = "<group>"; };
 		C3582BDDB4F6ECDA8F474F6959CBD563 /* FlatActionSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatActionSheet-dummy.m"; sourceTree = "<group>"; };
-		C5E16EB5D357FB1B7B7D03D17B88E37E /* FlatActionSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FlatActionSheet.framework; path = FlatActionSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5E16EB5D357FB1B7B7D03D17B88E37E /* FlatActionSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatActionSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8BE7D4DFCF41457F0424B662236E0F /* Pods-FlatActionSheet_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		D2B2B4B549EB46538C2497E4C8584A0D /* Pods-FlatActionSheet_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatActionSheet_Example-umbrella.h"; sourceTree = "<group>"; };
 		E5FA032248F1B20BD6423A6EC725B144 /* Pods-FlatActionSheet_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlatActionSheet_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				4ED02ADBC8B4A46A2C1FA9A4761B3FEC /* FlatActionSheet.swift */,
+				BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */,
 				8603C6D6F170AA16CCFEB6979E972D9B /* Pod */,
 				5EDA00195816FD12DE3860694E324121 /* Support Files */,
 			);
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF0C89F1211185AD00CE1716 /* FlatActionSheetDelegate.swift in Sources */,
 				D8FAD73E54E8314A38F4DA05D62C7E8C /* FlatActionSheet-dummy.m in Sources */,
 				DCCB0602F4D7EBABEDC02E85D1CE99B8 /* FlatActionSheet.swift in Sources */,
 			);

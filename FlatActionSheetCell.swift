@@ -45,6 +45,7 @@ public extension FlatActionSheetCell {
 private extension FlatActionSheetCell {
     func initViews() {
         selectionStyle = .none
+        label.textAlignment = .center
     }
     
     func addViews() {

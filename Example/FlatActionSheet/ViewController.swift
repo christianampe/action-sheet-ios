@@ -17,6 +17,8 @@ extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        actionSheet.tableView.separatorStyle = .none
+        
         let redAction = FlatActionSheetAction(title: "Change Border To Red", style: .normal, handler: { (action) in
             self.actionSheet.layer.borderColor = UIColor.red.cgColor
             self.actionSheet.layer.borderWidth = 1.0
@@ -32,21 +34,14 @@ extension ViewController {
             self.actionSheet.layer.borderWidth = 1.0
         })
         
+        let yellowAction = FlatActionSheetAction(title: "Change Border To Yellows", style: .normal, handler: { (action) in
+            self.actionSheet.layer.borderColor = UIColor.yellow.cgColor
+            self.actionSheet.layer.borderWidth = 1.0
+        })
+        
         actionSheet.addAction(redAction)
         actionSheet.addAction(blueAction)
         actionSheet.addAction(greenAction)
-        
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.checkAction)))
+        actionSheet.addAction(yellowAction)
     }
 }
-
-extension ViewController {
-    @objc func checkAction(sender : UITapGestureRecognizer) {
-        if let sheet = actionSheet {
-            sheet.removeFromSuperview()
-        } else {
-            view.addSubview(actionSheet)
-        }
-    }
-}
-

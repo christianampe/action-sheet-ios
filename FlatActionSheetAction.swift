@@ -7,16 +7,14 @@
 
 import Foundation
 
-public typealias FlatActionSheetActionHandler = ((FlatActionSheetAction) -> Swift.Void?)
-
 open class FlatActionSheetAction {
     public let title: String?
     public let style: FlatActionSheetActionStyle
-    public let handler: FlatActionSheetActionHandler?
+    public let handler: ((FlatActionSheetAction) -> Swift.Void)?
     
     public init(title: String? = nil,
               style: FlatActionSheetActionStyle,
-              handler: FlatActionSheetActionHandler? = nil) {
+              handler: ((FlatActionSheetAction) -> Swift.Void)? = nil) {
         
         self.title = title
         self.style = style

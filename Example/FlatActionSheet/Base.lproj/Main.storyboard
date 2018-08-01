@@ -41,6 +41,9 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="c1o-Jl-weI" secondAttribute="bottom" id="yVU-U8-bG6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionSheet" destination="c1o-Jl-weI" id="ts3-ZT-VON"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

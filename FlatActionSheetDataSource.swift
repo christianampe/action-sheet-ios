@@ -15,12 +15,14 @@ public protocol FlatActionSheetDataSource {
     
     // MARK: Properties
     var actions: [FlatActionSheetAction] { get }
+    var cellHeight: CGFloat { get }
     
     // MARK: Mutating Methods
     func addAction(_ action: FlatActionSheetAction)
     
     // MARK: Helper Methods
     func action(for index: IndexPath) -> FlatActionSheetAction?
+    func tableViewHeight() -> CGFloat
 }
 
 // MARK: - Default Implementations
@@ -33,5 +35,9 @@ public extension FlatActionSheetDataSource {
         }
         
         return actions[index.row]
+    }
+    
+    func tableViewHeight() -> CGFloat {
+        return CGFloat(actions.count) * cellHeight
     }
 }

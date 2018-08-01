@@ -11,10 +11,21 @@ import Foundation
 open class FlatActionSheet: UIView {
     
     // MARK: Views
-    public weak var tableView: UITableView!
+    open weak var tableView: UITableView!
     
     // MARK: Properties
-    public var actions: [FlatActionSheetAction] = []
+    open weak var tableViewHeightConstraint: NSLayoutConstraint!
+    
+    // MARK: Properties
+    open var actions: [FlatActionSheetAction] = []
+    
+    // MARK: IBInspectables
+    @IBInspectable
+    open var cellHeight: CGFloat = 50.0 {
+        didSet {
+            tableViewHeightConstraint.constant = tableViewHeight()
+        }
+    }
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -87,7 +98,11 @@ private extension FlatActionSheet {
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        tableView.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        
+        let tableViewHeightAnchor = tableView.heightAnchor.constraint(equalToConstant: tableViewHeight())
+        tableViewHeightAnchor.isActive = true
+        
+        tableViewHeightConstraint = tableViewHeightAnchor
     }
 }
 
@@ -96,6 +111,8 @@ extension FlatActionSheet: FlatActionSheetDataSource {
     public func addAction(_ action: FlatActionSheetAction) {
         
         actions.append(action)
+        tableViewHeightConstraint.constant = tableViewHeight()
+        tableView.reloadData()
     } 
 }
 
@@ -119,7 +136,7 @@ extension FlatActionSheet: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 50
+        return cellHeight
     }
 }
 

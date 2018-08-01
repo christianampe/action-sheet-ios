@@ -49,7 +49,7 @@ open class FlatActionSheet: UIView {
         self.tableView = tableView
         
         super.init(coder: aDecoder)
-    
+        
         setupView()
         setupTableView()
         
@@ -66,11 +66,11 @@ private extension FlatActionSheet {
     
     func setupTableView() {
         
-//        tableView.register(FlatDropdownCell.self,
-//                           forCellReuseIdentifier: FlatDropdownCell.reuseIdentifier)
-//
-//        tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.register(FlatActionSheetCell.self,
+                           forCellReuseIdentifier: FlatActionSheetCell.reuseIdentifier)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
         
         tableView.isScrollEnabled = false
     }
@@ -91,8 +91,64 @@ private extension FlatActionSheet {
     }
 }
 
+// MARK: - Flat Action Sheet Data Source Conformance
 extension FlatActionSheet: FlatActionSheetDataSource {
     public func addAction(_ action: FlatActionSheetAction) {
+        
         actions.append(action)
     } 
+}
+
+// MARK: - Table View Delegate Conformance
+extension FlatActionSheet: UITableViewDelegate {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let action = action(for: indexPath) else {
+            
+            assert(false, "internal inconsistency  - file a bug")
+            return
+        }
+        
+        guard let handler = action.handler else {
+            
+            assert(false, "internal inconsistency  - file a bug")
+            return
+        }
+        
+        handler(action)
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 50
+    }
+}
+
+// MARK: - Table View Data Source Conformance
+extension FlatActionSheet: UITableViewDataSource {
+    public func tableView(_ tableView: UITableView,
+                          numberOfRowsInSection section: Int) -> Int {
+        
+        return actions.count
+    }
+    
+    public func tableView(_ tableView: UITableView,
+                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FlatActionSheetCell.reuseIdentifier,
+                                                       for: indexPath) as? FlatActionSheetCell else {
+                                                        
+            assert(false, "table view cell registration inconsistency")
+            return UITableViewCell()
+        }
+        
+        guard let title = action(for: indexPath)?.title else {
+            
+            assert(false, "internal inconsistency  - file a bug")
+            return UITableViewCell()
+        }
+        
+        cell.update(title)
+        
+        return cell
+    }
 }

@@ -1,0 +1,6 @@
+framework module Pods_FlatActionSheet_Example {
+  umbrella header "Pods-FlatActionSheet_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -15,6 +15,7 @@ open class FlatActionSheet: UIView {
     
     // MARK: Properties
     open weak var tableViewHeightConstraint: NSLayoutConstraint!
+    open weak var tableViewTopConstraint: NSLayoutConstraint!
     
     // MARK: Properties
     open var actions: [FlatActionSheetAction] = []
@@ -23,7 +24,10 @@ open class FlatActionSheet: UIView {
     @IBInspectable
     open var cellHeight: CGFloat = 50.0 {
         didSet {
-            tableViewHeightConstraint.constant = tableViewHeight()
+            animateTableView(tableViewHeightConstraint,
+                             value: tableViewHeight(),
+                             for: 0.2,
+                             with: .to)
         }
     }
     
@@ -36,9 +40,12 @@ open class FlatActionSheet: UIView {
                 return
             }
             
-            layer.backgroundColor = UIColor.black.withAlphaComponent(backgroundAlphaPercentage/100).cgColor
+            animateBackgroundAlpha(for: 0.2, percentage: backgroundAlphaPercentage)
         }
     }
+    
+    @IBInspectable
+    open var animationDuration: Double = 0.3
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -85,7 +92,7 @@ open class FlatActionSheet: UIView {
 // MARK: - Setup Methods
 private extension FlatActionSheet {
     func setupView() {
-        layer.backgroundColor = UIColor.black.withAlphaComponent(backgroundAlphaPercentage/100).cgColor
+        // do nothing
     }
     
     func setupTableView() {
@@ -114,14 +121,96 @@ private extension FlatActionSheet {
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        
+        let tableViewTopAnchor = tableView.topAnchor.constraint(equalTo: bottomAnchor)
+        tableViewTopAnchor.isActive = true
+        
+        tableViewTopConstraint = tableViewTopAnchor
         
         let tableViewHeightAnchor = tableView.heightAnchor.constraint(equalToConstant: tableViewHeight())
         tableViewHeightAnchor.isActive = true
         
         tableViewHeightConstraint = tableViewHeightAnchor
+    }
+}
+
+// MARK: - Public Methods
+public extension FlatActionSheet {
+    func show(_ animationDuration: TimeInterval) {
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(animationDuration)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        
+        animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
+        animateBackgroundAlpha(for: animationDuration, percentage: backgroundAlphaPercentage)
+        
+        CATransaction.commit()
+    }
+    
+    func show() {
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(animationDuration)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        
+        animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
+        animateBackgroundAlpha(for: animationDuration, percentage: backgroundAlphaPercentage)
+        
+        CATransaction.commit()
+    }
+    
+    func hide(_ animationDuration: TimeInterval) {
+        
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(animationDuration)
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+        
+        animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
+        animateBackgroundAlpha(for: animationDuration, percentage: 0.0)
+        
+        CATransaction.commit()
+    }
+}
+
+// MARK: - Animation Methods
+private extension FlatActionSheet {
+    enum AnimationType {
+        case add
+        case to
+    }
+    
+    func hideSheet() {
+        
+        
+    }
+    
+    func animateTableView(_ constraint: NSLayoutConstraint,
+                          value: CGFloat,
+                          for duration: TimeInterval,
+                          with type: AnimationType) {
+        
+        switch type {
+        case .add:
+            constraint.constant += value
+        case .to:
+            constraint.constant = value
+        }
+        
+        UIView.animate(withDuration: duration) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func animateBackgroundAlpha(for duration: TimeInterval, percentage: CGFloat) {
+        
+        layer.backgroundColor = UIColor.black.withAlphaComponent(0.0).cgColor
+        
+        UIView.animate(withDuration: duration) {
+            self.layer.backgroundColor = UIColor.black.withAlphaComponent(percentage/100).cgColor
+        }
     }
 }
 
@@ -152,7 +241,8 @@ extension FlatActionSheet: UITableViewDelegate {
         
         switch action.style {
         case .dismiss:
-            removeFromSuperview()
+            
+            hide(animationDuration)
         }
         
         handler(action)

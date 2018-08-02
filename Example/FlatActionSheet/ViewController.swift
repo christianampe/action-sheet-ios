@@ -44,4 +44,10 @@ extension ViewController {
         actionSheet.addAction(greenAction)
         actionSheet.addAction(yellowAction)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        actionSheet.show()
+    }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 public enum FlatActionSheetActionStyle {
-    case normal
+    case dismiss
 }

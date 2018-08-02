@@ -19,22 +19,22 @@ extension ViewController {
         
         actionSheet.tableView.separatorStyle = .none
         
-        let redAction = FlatActionSheetAction(title: "Change Border To Red", style: .normal, handler: { (action) in
+        let redAction = FlatActionSheetAction(title: "Change Border To Red", style: .dismiss, handler: { (action) in
             self.actionSheet.layer.borderColor = UIColor.red.cgColor
             self.actionSheet.layer.borderWidth = 1.0
         })
         
-        let blueAction = FlatActionSheetAction(title: "Change Border To Blue", style: .normal, handler: { action in
+        let blueAction = FlatActionSheetAction(title: "Change Border To Blue", style: .dismiss, handler: { action in
             self.actionSheet.layer.borderColor = UIColor.blue.cgColor
             self.actionSheet.layer.borderWidth = 1.0
         })
         
-        let greenAction = FlatActionSheetAction(title: "Change Border To Green", style: .normal, handler: { action in
+        let greenAction = FlatActionSheetAction(title: "Change Border To Green", style: .dismiss, handler: { action in
             self.actionSheet.layer.borderColor = UIColor.green.cgColor
             self.actionSheet.layer.borderWidth = 1.0
         })
         
-        let yellowAction = FlatActionSheetAction(title: "Change Border To Yellows", style: .normal, handler: { (action) in
+        let yellowAction = FlatActionSheetAction(title: "Change Border To Yellows", style: .dismiss, handler: { (action) in
             self.actionSheet.layer.borderColor = UIColor.yellow.cgColor
             self.actionSheet.layer.borderWidth = 1.0
         })

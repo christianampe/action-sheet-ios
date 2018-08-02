@@ -28,7 +28,7 @@ open class FlatActionSheet: UIView {
     }
     
     @IBInspectable
-    open var backgroundAlphaPercentage: CGFloat = 00.0 {
+    open var backgroundAlphaPercentage: CGFloat = 50.0 {
         didSet {
             guard backgroundAlphaPercentage >= 1 && backgroundAlphaPercentage <= 100 else {
                 
@@ -99,9 +99,10 @@ private extension FlatActionSheet {
         tableView.isScrollEnabled = false
         
         tableView.layer.shadowColor = UIColor.black.cgColor
-        tableView.layer.shadowOffset = CGSize.zero
-        tableView.layer.shadowRadius = 10
-        tableView.layer.shadowOpacity = 1
+        tableView.layer.shadowOffset = CGSize(width: 0, height: -5)
+        tableView.layer.shadowRadius = 3
+        tableView.layer.shadowOpacity = 0.8
+        tableView.layer.masksToBounds = false
     }
     
     func addViews() {
@@ -147,6 +148,11 @@ extension FlatActionSheet: UITableViewDelegate {
             
             assert(false, "internal inconsistency  - file a bug")
             return
+        }
+        
+        switch action.style {
+        case .dismiss:
+            removeFromSuperview()
         }
         
         handler(action)

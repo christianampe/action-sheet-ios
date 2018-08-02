@@ -27,6 +27,19 @@ open class FlatActionSheet: UIView {
         }
     }
     
+    @IBInspectable
+    open var backgroundAlphaPercentage: CGFloat = 00.0 {
+        didSet {
+            guard backgroundAlphaPercentage >= 1 && backgroundAlphaPercentage <= 100 else {
+                
+                assert(false, "select a value between 1 and 100")
+                return
+            }
+            
+            layer.backgroundColor = UIColor.black.withAlphaComponent(backgroundAlphaPercentage/100).cgColor
+        }
+    }
+    
     // MARK: Designable Initalizers
     public convenience init() {
         
@@ -72,7 +85,7 @@ open class FlatActionSheet: UIView {
 // MARK: - Setup Methods
 private extension FlatActionSheet {
     func setupView() {
-        layer.backgroundColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        layer.backgroundColor = UIColor.black.withAlphaComponent(backgroundAlphaPercentage/100).cgColor
     }
     
     func setupTableView() {
@@ -84,6 +97,11 @@ private extension FlatActionSheet {
         tableView.delegate = self
         
         tableView.isScrollEnabled = false
+        
+        tableView.layer.shadowColor = UIColor.black.cgColor
+        tableView.layer.shadowOffset = CGSize.zero
+        tableView.layer.shadowRadius = 10
+        tableView.layer.shadowOpacity = 1
     }
     
     func addViews() {

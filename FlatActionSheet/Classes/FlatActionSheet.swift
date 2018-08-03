@@ -32,9 +32,9 @@ open class FlatActionSheet: UIView {
     }
     
     @IBInspectable
-    open var viewColor: UIColor = FlatActionSheetConfig.default.backgroundColor {
+    open var backgroundViewColor: UIColor = FlatActionSheetConfig.default.backgroundColor {
         didSet {
-            layer.backgroundColor = viewColor.cgColor
+            layer.backgroundColor = backgroundViewColor.cgColor
         }
     }
     

@@ -72,6 +72,8 @@ open class FlatActionSheet: UIView {
         
         addViews()
         addConstraints()
+        
+        initConfig(config)
     }
     
     // MARK: Storyboard Initalizer
@@ -87,6 +89,8 @@ open class FlatActionSheet: UIView {
         
         addViews()
         addConstraints()
+        
+        initConfig()
     }
 }
 
@@ -147,18 +151,6 @@ private extension FlatActionSheet {
 
 // MARK: - Public Methods
 public extension FlatActionSheet {
-    func show(_ animationDuration: TimeInterval) {
-        
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(animationDuration)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
-        
-        animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
-        animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
-        
-        CATransaction.commit()
-    }
-    
     func show() {
         
         CATransaction.begin()
@@ -177,6 +169,10 @@ public extension FlatActionSheet {
         CATransaction.setAnimationDuration(animationDuration)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         
+        CATransaction.setCompletionBlock {
+            self.removeFromSuperview()
+        }
+        
         animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
         animateBackgroundAlpha(for: animationDuration, value: 0)
         
@@ -189,11 +185,6 @@ private extension FlatActionSheet {
     enum AnimationType {
         case add
         case to
-    }
-    
-    func hideSheet() {
-        
-        
     }
     
     func animateTableView(_ constraint: NSLayoutConstraint,

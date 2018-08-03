@@ -1,6 +1,6 @@
 {
   "name": "FlatActionSheet",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A flat designed action sheet.",
   "description": "A flat designed action sheet useful for those who want a sleeker-looking action sheet.",
   "homepage": "https://github.com/educrate/flat-action-sheet-ios",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/educrate/flat-action-sheet-ios.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "9.3"

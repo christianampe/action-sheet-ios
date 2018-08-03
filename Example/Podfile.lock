@@ -1,5 +1,5 @@
 PODS:
-  - FlatActionSheet (0.1.0)
+  - FlatActionSheet (0.0.1)
 
 DEPENDENCIES:
   - FlatActionSheet (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FlatActionSheet: 5cb20d4e3b274f9a5b6291b46a14d932fc5a04fb
+  FlatActionSheet: ff908187b0ba2bbb76420930169ef70b10842ec5
 
-PODFILE CHECKSUM: b8c3a1e4135c919f97bc9a18ba7b01942783a58d
+PODFILE CHECKSUM: 6988a50eb4a2d87adbe99d347d36883602c4e6a7
 
 COCOAPODS: 1.5.0

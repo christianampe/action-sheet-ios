@@ -65,6 +65,7 @@ open class FlatActionSheet: UIView {
             tableView.layer.shadowOffset = dropShadowOffset
             tableView.layer.shadowRadius = dropShadowRadius
             tableView.layer.shadowOpacity = dropShadowOpacity
+            
             tableView.layer.masksToBounds = false
         }
     }
@@ -195,6 +196,7 @@ public extension FlatActionSheet {
     func show() {
         
         CATransaction.begin()
+        
         CATransaction.setAnimationDuration(animationDuration)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
         
@@ -207,12 +209,11 @@ public extension FlatActionSheet {
     func hide(_ animationDuration: TimeInterval) {
         
         CATransaction.begin()
+        
         CATransaction.setAnimationDuration(animationDuration)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         
-        CATransaction.setCompletionBlock {
-            self.removeFromSuperview()
-        }
+        CATransaction.setCompletionBlock { self.removeFromSuperview() }
         
         animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
         animateBackgroundAlpha(for: animationDuration, value: 0)

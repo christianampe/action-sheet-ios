@@ -26,8 +26,15 @@ open class FlatActionSheet: UIView {
         didSet {
             animateTableView(tableViewHeightConstraint,
                              value: tableViewHeight(),
-                             for: 0.2,
+                             for: animationDuration,
                              with: .to)
+        }
+    }
+    
+    @IBInspectable
+    open var viewColor: UIColor = FlatActionSheetConfig.default.backgroundColor {
+        didSet {
+            layer.backgroundColor = viewColor.cgColor
         }
     }
     
@@ -46,6 +53,9 @@ open class FlatActionSheet: UIView {
     
     @IBInspectable
     open var animationDuration: Double = FlatActionSheetConfig.default.animationDuration
+    
+    @IBInspectable
+    open var shouldShowDropShadow: Bool = FlatActionSheetConfig.default.shouldShowDropShadow
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -144,7 +154,7 @@ private extension FlatActionSheet {
         
         cellHeight = config.cellHeight
         backgroundAlphaValue = config.backgroundAlphaValue
-        
+        shouldShowDropShadow = config.shouldShowDropShadow
         animationDuration = config.animationDuration
     }
 }
@@ -220,6 +230,7 @@ extension FlatActionSheet: FlatActionSheetDataSource {
         
         actions.append(action)
         tableViewHeightConstraint.constant = tableViewHeight()
+        
         tableView.reloadData()
     } 
 }

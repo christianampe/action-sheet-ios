@@ -73,7 +73,7 @@ open class FlatActionSheet: UIView {
     @IBInspectable
     open var dropShadowColor: UIColor = FlatActionSheetConfig.default.dropShadowConfig.color {
         didSet {
-            tableView.layer.shadowColor = UIColor.black.cgColor
+            tableView.layer.shadowColor = dropShadowColor.cgColor
         }
     }
     
@@ -149,6 +149,11 @@ private extension FlatActionSheet {
         tableViewTopConstraint = tableViewTopAnchor
     }
     
+    func setupView() {
+        
+        layer.backgroundColor = backgroundViewColor.withAlphaComponent(backgroundAlphaValue).cgColor
+    }
+    
     func setupTableView() {
         
         tableView.register(FlatActionSheetCell.self,
@@ -186,6 +191,7 @@ public extension FlatActionSheet {
         addViews()
         addConstraints()
         
+        setupView()
         setupTableView()
         
         guard let keyWindow = UIApplication.shared.keyWindow else {
@@ -203,6 +209,8 @@ public extension FlatActionSheet {
         
         layoutIfNeeded()
         
+        layer.backgroundColor = backgroundViewColor.withAlphaComponent(0).cgColor
+        
         animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
         animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
         
@@ -217,6 +225,8 @@ public extension FlatActionSheet {
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
         
         CATransaction.setCompletionBlock { self.removeFromSuperview() }
+        
+        layer.backgroundColor = backgroundViewColor.withAlphaComponent(backgroundAlphaValue).cgColor
         
         animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
         animateBackgroundAlpha(for: animationDuration, value: 0)
@@ -253,7 +263,7 @@ private extension FlatActionSheet {
                                 value: CGFloat) {
         
         UIView.animate(withDuration: duration) {
-            self.layer.backgroundColor = UIColor.black.withAlphaComponent(value).cgColor
+            self.layer.backgroundColor = self.backgroundViewColor.withAlphaComponent(value).cgColor
         }
     }
 }

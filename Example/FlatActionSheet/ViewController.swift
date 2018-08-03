@@ -18,12 +18,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -51,5 +45,11 @@ extension ViewController {
         actionSheet.addAction(blueAction)
         actionSheet.addAction(greenAction)
         actionSheet.addAction(yellowAction)
+    }
+}
+
+extension ViewController {
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }

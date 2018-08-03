@@ -21,13 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="ZjH-RW-K6J">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-screenshot" translatesAutoresizingMaskIntoConstraints="NO" id="ZjH-RW-K6J">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-F5-E59">
-                                <rect key="frame" x="168" y="44" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Evx-F5-E59">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <connections>
                                     <action selector="showActionSheet:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="D9U-bQ-ecl"/>
                                 </connections>
@@ -37,8 +35,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ZjH-RW-K6J" secondAttribute="trailing" id="5Qf-8p-WFQ"/>
                             <constraint firstItem="ZjH-RW-K6J" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Bt3-gj-oAd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Evx-F5-E59" secondAttribute="bottom" id="HpG-k3-5ES"/>
+                            <constraint firstItem="Evx-F5-E59" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Jig-Ol-tWL"/>
                             <constraint firstItem="ZjH-RW-K6J" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="SzV-Mw-tY1"/>
                             <constraint firstAttribute="bottom" secondItem="ZjH-RW-K6J" secondAttribute="bottom" id="Y2m-N7-7GG"/>
+                            <constraint firstItem="Evx-F5-E59" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="cX4-Jk-oH3"/>
+                            <constraint firstAttribute="trailing" secondItem="Evx-F5-E59" secondAttribute="trailing" id="gDM-cd-f0y"/>
                         </constraints>
                     </view>
                 </viewController>

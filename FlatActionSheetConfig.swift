@@ -35,7 +35,7 @@ extension FlatActionSheetConfig {
     public static let `default` = FlatActionSheetConfig(cellHeight: 50.0,
                                                         backgroundColor: .black,
                                                         backgroundAlphaValue: 0.5,
-                                                        animationDuration: 0.5,
+                                                        animationDuration: 0.4,
                                                         shouldShowDropShadow: false,
                                                         dropShadowConfig: .default)
 }

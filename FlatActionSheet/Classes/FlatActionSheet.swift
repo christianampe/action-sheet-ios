@@ -138,15 +138,15 @@ private extension FlatActionSheet {
         tableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
-        let tableViewTopAnchor = tableView.topAnchor.constraint(equalTo: bottomAnchor)
-        tableViewTopAnchor.isActive = true
-        
-        tableViewTopConstraint = tableViewTopAnchor
-        
         let tableViewHeightAnchor = tableView.heightAnchor.constraint(equalToConstant: tableViewHeight())
         tableViewHeightAnchor.isActive = true
         
         tableViewHeightConstraint = tableViewHeightAnchor
+        
+        let tableViewTopAnchor = tableView.topAnchor.constraint(equalTo: bottomAnchor)
+        tableViewTopAnchor.isActive = true
+        
+        tableViewTopConstraint = tableViewTopAnchor
     }
     
     func setupTableView() {
@@ -199,7 +199,9 @@ public extension FlatActionSheet {
         CATransaction.begin()
         
         CATransaction.setAnimationDuration(animationDuration)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
+        
+        layoutIfNeeded()
         
         animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
         animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
@@ -212,7 +214,7 @@ public extension FlatActionSheet {
         CATransaction.begin()
         
         CATransaction.setAnimationDuration(animationDuration)
-        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
+        CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
         
         CATransaction.setCompletionBlock { self.removeFromSuperview() }
         

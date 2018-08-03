@@ -10,14 +10,22 @@ import UIKit
 import FlatActionSheet
 
 class ViewController: UIViewController {
-    @IBOutlet weak var actionSheet: FlatActionSheet!
+    let actionSheet = FlatActionSheet(config: .default)
+    
+    @IBAction func showActionSheet(_ sender: Any) {
+        actionSheet.show()
+    }
 }
 
 extension ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        actionSheet.tableView.separatorStyle = .none
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let redAction = FlatActionSheetAction(title: "Change Border To Red", style: .dismiss, handler: { (action) in
             self.actionSheet.layer.borderColor = UIColor.red.cgColor
@@ -43,11 +51,5 @@ extension ViewController {
         actionSheet.addAction(blueAction)
         actionSheet.addAction(greenAction)
         actionSheet.addAction(yellowAction)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        actionSheet.show()
     }
 }

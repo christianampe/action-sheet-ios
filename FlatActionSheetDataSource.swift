@@ -38,6 +38,12 @@ public extension FlatActionSheetDataSource {
     }
     
     func tableViewHeight() -> CGFloat {
-        return CGFloat(actions.count) * cellHeight
+        var bottomSafeSpaceHeight: CGFloat = 0
+        
+        if #available(iOS 11.0, *) {
+            bottomSafeSpaceHeight = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+        }
+        
+        return CGFloat(actions.count) * cellHeight + bottomSafeSpaceHeight
     }
 }

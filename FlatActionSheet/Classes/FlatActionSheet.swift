@@ -99,9 +99,10 @@ open class FlatActionSheet: UIView {
     }
     
     // MARK: Designable Initalizers
-    public convenience init() {
+    public convenience init(config: FlatActionSheetConfig = .default) {
         
-        self.init(frame: CGRect.zero)
+        self.init(UIScreen.main.bounds,
+                  config: config)
     }
     
     public override convenience init(frame: CGRect) {
@@ -113,47 +114,18 @@ open class FlatActionSheet: UIView {
     public init(_ frame: CGRect,
                 config: FlatActionSheetConfig = .default) {
         
-        let tableView = UITableView()
-        self.tableView = tableView
-        
         super.init(frame: frame)
-        
-        addViews()
-        addConstraints()
-        
-        setupTableView()
-        
-        initConfig(config)
     }
     
     // MARK: Storyboard Initalizer
     public required init?(coder aDecoder: NSCoder) {
         
-        let tableView = UITableView()
-        self.tableView = tableView
-        
         super.init(coder: aDecoder)
-        
-        addViews()
-        addConstraints()
-        
-        setupTableView()
     }
 }
 
 // MARK: - Setup Methods
 private extension FlatActionSheet {
-    func setupTableView() {
-        
-        tableView.register(FlatActionSheetCell.self,
-                           forCellReuseIdentifier: FlatActionSheetCell.reuseIdentifier)
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.isScrollEnabled = false
-    }
-    
     func addViews() {
         
         addSubview(tableView)
@@ -177,6 +149,19 @@ private extension FlatActionSheet {
         tableViewHeightConstraint = tableViewHeightAnchor
     }
     
+    func setupTableView() {
+        
+        tableView.register(FlatActionSheetCell.self,
+                           forCellReuseIdentifier: FlatActionSheetCell.reuseIdentifier)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.isScrollEnabled = false
+        
+        tableView.separatorStyle = .none
+    }
+    
     func initConfig(_ config: FlatActionSheetConfig = .default) {
         
         cellHeight = config.cellHeight
@@ -195,6 +180,22 @@ private extension FlatActionSheet {
 public extension FlatActionSheet {
     func show() {
         
+        let tableView = UITableView()
+        self.tableView = tableView
+        
+        addViews()
+        addConstraints()
+        
+        setupTableView()
+        
+        guard let keyWindow = UIApplication.shared.keyWindow else {
+            
+            assert(false, "no key window for application")
+            return
+        }
+        
+        keyWindow.addSubview(self)
+        
         CATransaction.begin()
         
         CATransaction.setAnimationDuration(animationDuration)
@@ -206,7 +207,7 @@ public extension FlatActionSheet {
         CATransaction.commit()
     }
     
-    func hide(_ animationDuration: TimeInterval) {
+    func hide() {
         
         CATransaction.begin()
         
@@ -249,8 +250,6 @@ private extension FlatActionSheet {
     func animateBackgroundAlpha(for duration: TimeInterval,
                                 value: CGFloat) {
         
-        layer.backgroundColor = UIColor.black.withAlphaComponent(0).cgColor
-        
         UIView.animate(withDuration: duration) {
             self.layer.backgroundColor = UIColor.black.withAlphaComponent(value).cgColor
         }
@@ -262,9 +261,6 @@ extension FlatActionSheet: FlatActionSheetDataSource {
     public func addAction(_ action: FlatActionSheetAction) {
         
         actions.append(action)
-        tableViewHeightConstraint.constant = tableViewHeight()
-        
-        tableView.reloadData()
     } 
 }
 
@@ -288,7 +284,7 @@ extension FlatActionSheet: UITableViewDelegate {
         switch action.style {
         case .dismiss:
             
-            hide(animationDuration)
+            hide()
         }
         
         handler(action)

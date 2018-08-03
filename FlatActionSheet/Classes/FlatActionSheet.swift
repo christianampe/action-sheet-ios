@@ -55,7 +55,47 @@ open class FlatActionSheet: UIView {
     open var animationDuration: Double = FlatActionSheetConfig.default.animationDuration
     
     @IBInspectable
-    open var shouldShowDropShadow: Bool = FlatActionSheetConfig.default.shouldShowDropShadow
+    open var shouldShowDropShadow: Bool = FlatActionSheetConfig.default.shouldShowDropShadow {
+        didSet {
+            guard shouldShowDropShadow else {
+                return
+            }
+            
+            tableView.layer.shadowColor = dropShadowColor.cgColor
+            tableView.layer.shadowOffset = dropShadowOffset
+            tableView.layer.shadowRadius = dropShadowRadius
+            tableView.layer.shadowOpacity = dropShadowOpacity
+            tableView.layer.masksToBounds = false
+        }
+    }
+    
+    @IBInspectable
+    open var dropShadowColor: UIColor = FlatActionSheetConfig.default.dropShadowConfig.color {
+        didSet {
+            tableView.layer.shadowColor = UIColor.black.cgColor
+        }
+    }
+    
+    @IBInspectable
+    open var dropShadowOffset: CGSize = FlatActionSheetConfig.default.dropShadowConfig.offset {
+        didSet {
+            tableView.layer.shadowOffset = dropShadowOffset
+        }
+    }
+    
+    @IBInspectable
+    open var dropShadowRadius: CGFloat = FlatActionSheetConfig.default.dropShadowConfig.radius {
+        didSet {
+            tableView.layer.shadowRadius = dropShadowRadius
+        }
+    }
+    
+    @IBInspectable
+    open var dropShadowOpacity: Float = FlatActionSheetConfig.default.dropShadowConfig.opacity {
+        didSet {
+            tableView.layer.shadowOpacity = dropShadowOpacity
+        }
+    }
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -77,11 +117,10 @@ open class FlatActionSheet: UIView {
         
         super.init(frame: frame)
         
-        setupView()
-        setupTableView()
-        
         addViews()
         addConstraints()
+        
+        setupTableView()
         
         initConfig(config)
     }
@@ -94,22 +133,15 @@ open class FlatActionSheet: UIView {
         
         super.init(coder: aDecoder)
         
-        setupView()
-        setupTableView()
-        
         addViews()
         addConstraints()
         
-        initConfig()
+        setupTableView()
     }
 }
 
 // MARK: - Setup Methods
 private extension FlatActionSheet {
-    func setupView() {
-        // do nothing
-    }
-    
     func setupTableView() {
         
         tableView.register(FlatActionSheetCell.self,
@@ -119,12 +151,6 @@ private extension FlatActionSheet {
         tableView.delegate = self
         
         tableView.isScrollEnabled = false
-        
-        tableView.layer.shadowColor = UIColor.black.cgColor
-        tableView.layer.shadowOffset = CGSize(width: 0, height: -5)
-        tableView.layer.shadowRadius = 3
-        tableView.layer.shadowOpacity = 0.8
-        tableView.layer.masksToBounds = false
     }
     
     func addViews() {
@@ -156,6 +182,11 @@ private extension FlatActionSheet {
         backgroundAlphaValue = config.backgroundAlphaValue
         shouldShowDropShadow = config.shouldShowDropShadow
         animationDuration = config.animationDuration
+        
+        dropShadowColor = config.dropShadowConfig.color
+        dropShadowOffset = config.dropShadowConfig.offset
+        dropShadowRadius = config.dropShadowConfig.radius
+        dropShadowOpacity = config.dropShadowConfig.opacity
     }
 }
 
@@ -214,7 +245,8 @@ private extension FlatActionSheet {
         }
     }
     
-    func animateBackgroundAlpha(for duration: TimeInterval, value: CGFloat) {
+    func animateBackgroundAlpha(for duration: TimeInterval,
+                                value: CGFloat) {
         
         layer.backgroundColor = UIColor.black.withAlphaComponent(0).cgColor
         
@@ -237,7 +269,9 @@ extension FlatActionSheet: FlatActionSheetDataSource {
 
 // MARK: - Table View Delegate Conformance
 extension FlatActionSheet: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView,
+                          didSelectRowAt indexPath: IndexPath) {
+        
         guard let action = action(for: indexPath) else {
             
             assert(false, "internal inconsistency  - file a bug")
@@ -259,7 +293,8 @@ extension FlatActionSheet: UITableViewDelegate {
         handler(action)
     }
     
-    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    public func tableView(_ tableView: UITableView,
+                          heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return cellHeight
     }

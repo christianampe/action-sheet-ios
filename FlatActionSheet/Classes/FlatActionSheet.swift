@@ -275,13 +275,13 @@ extension FlatActionSheet: UITableViewDelegate {
         
         guard let action = action(for: indexPath) else {
             
-            assert(false, "internal inconsistency  - file a bug")
+            assert(false, "internal inconsistency - file a bug")
             return
         }
         
         guard let handler = action.handler else {
             
-            assert(false, "internal inconsistency  - file a bug")
+            assert(false, "internal inconsistency - file a bug")
             return
         }
         
@@ -321,7 +321,7 @@ extension FlatActionSheet: UITableViewDataSource {
         
         guard let title = action(for: indexPath)?.title else {
             
-            assert(false, "internal inconsistency  - file a bug")
+            assert(false, "internal inconsistency - file a bug")
             return UITableViewCell()
         }
         

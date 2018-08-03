@@ -22,7 +22,7 @@ open class FlatActionSheet: UIView {
     
     // MARK: IBInspectables
     @IBInspectable
-    open var cellHeight: CGFloat = 50.0 {
+    open var cellHeight: CGFloat = FlatActionSheetConfig.default.cellHeight {
         didSet {
             animateTableView(tableViewHeightConstraint,
                              value: tableViewHeight(),
@@ -32,20 +32,20 @@ open class FlatActionSheet: UIView {
     }
     
     @IBInspectable
-    open var backgroundAlphaPercentage: CGFloat = 50.0 {
+    open var backgroundAlphaValue: CGFloat = FlatActionSheetConfig.default.backgroundAlphaValue {
         didSet {
-            guard backgroundAlphaPercentage >= 1 && backgroundAlphaPercentage <= 100 else {
+            guard backgroundAlphaValue >= 0 && backgroundAlphaValue <= 1 else {
                 
-                assert(false, "select a value between 1 and 100")
+                assert(false, "select a value between 0 and 1")
                 return
             }
             
-            animateBackgroundAlpha(for: 0.2, percentage: backgroundAlphaPercentage)
+            animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
         }
     }
     
     @IBInspectable
-    open var animationDuration: Double = 0.3
+    open var animationDuration: Double = FlatActionSheetConfig.default.animationDuration
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -59,7 +59,8 @@ open class FlatActionSheet: UIView {
     }
     
     // MARK: Programmatic Initalizer
-    public init(_ frame: CGRect) {
+    public init(_ frame: CGRect,
+                config: FlatActionSheetConfig = .default) {
         
         let tableView = UITableView()
         self.tableView = tableView
@@ -134,6 +135,14 @@ private extension FlatActionSheet {
         
         tableViewHeightConstraint = tableViewHeightAnchor
     }
+    
+    func initConfig(_ config: FlatActionSheetConfig = .default) {
+        
+        cellHeight = config.cellHeight
+        backgroundAlphaValue = config.backgroundAlphaValue
+        
+        animationDuration = config.animationDuration
+    }
 }
 
 // MARK: - Public Methods
@@ -145,7 +154,7 @@ public extension FlatActionSheet {
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
         
         animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
-        animateBackgroundAlpha(for: animationDuration, percentage: backgroundAlphaPercentage)
+        animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
         
         CATransaction.commit()
     }
@@ -157,7 +166,7 @@ public extension FlatActionSheet {
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn))
         
         animateTableView(tableViewTopConstraint, value: -tableViewHeight(), for: animationDuration, with: .to)
-        animateBackgroundAlpha(for: animationDuration, percentage: backgroundAlphaPercentage)
+        animateBackgroundAlpha(for: animationDuration, value: backgroundAlphaValue)
         
         CATransaction.commit()
     }
@@ -169,7 +178,7 @@ public extension FlatActionSheet {
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut))
         
         animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
-        animateBackgroundAlpha(for: animationDuration, percentage: 0.0)
+        animateBackgroundAlpha(for: animationDuration, value: 0)
         
         CATransaction.commit()
     }
@@ -204,12 +213,12 @@ private extension FlatActionSheet {
         }
     }
     
-    func animateBackgroundAlpha(for duration: TimeInterval, percentage: CGFloat) {
+    func animateBackgroundAlpha(for duration: TimeInterval, value: CGFloat) {
         
-        layer.backgroundColor = UIColor.black.withAlphaComponent(0.0).cgColor
+        layer.backgroundColor = UIColor.black.withAlphaComponent(0).cgColor
         
         UIView.animate(withDuration: duration) {
-            self.layer.backgroundColor = UIColor.black.withAlphaComponent(percentage/100).cgColor
+            self.layer.backgroundColor = UIColor.black.withAlphaComponent(value).cgColor
         }
     }
 }

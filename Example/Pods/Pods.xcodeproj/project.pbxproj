@@ -14,12 +14,12 @@
 		9DCE9623E02396AF6F99821C50C6E88A /* Pods-FlatActionSheet_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DF4CE72AB326F4554D8CBC84E1A03F /* Pods-FlatActionSheet_Example-dummy.m */; };
 		AAA1B54BF994679F3669BA04A79E8300 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		B684D14BA1D6756AAA0787562CC9709A /* Pods-FlatActionSheet_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B25FBBB529C8624A59F6FC9C36B94366 /* Pods-FlatActionSheet_Tests-dummy.m */; };
-		BF0C89F1211185AD00CE1716 /* FlatActionSheetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */; };
-		BF6DF047211234CC00D5403E /* FlatActionSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DF046211234CC00D5403E /* FlatActionSheetAction.swift */; };
-		BF6DF049211235DD00D5403E /* FlatActionSheetActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DF048211235DD00D5403E /* FlatActionSheetActionStyle.swift */; };
-		BF6DF04B2112389A00D5403E /* FlatActionSheetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DF04A2112389A00D5403E /* FlatActionSheetDataSource.swift */; };
-		BF6DF04D21125F8400D5403E /* FlatActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DF04C21125F8400D5403E /* FlatActionSheetCell.swift */; };
-		BF6DF04F2113EDFC00D5403E /* FlatActionSheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6DF04E2113EDFC00D5403E /* FlatActionSheetConfig.swift */; };
+		BFC487FA2115141D00A9920F /* FlatActionSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F42115141C00A9920F /* FlatActionSheetAction.swift */; };
+		BFC487FB2115141D00A9920F /* FlatActionSheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F52115141C00A9920F /* FlatActionSheetConfig.swift */; };
+		BFC487FC2115141D00A9920F /* FlatActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F62115141C00A9920F /* FlatActionSheetCell.swift */; };
+		BFC487FD2115141D00A9920F /* FlatActionSheetActionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F72115141C00A9920F /* FlatActionSheetActionStyle.swift */; };
+		BFC487FE2115141D00A9920F /* FlatActionSheetDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F82115141C00A9920F /* FlatActionSheetDataSource.swift */; };
+		BFC487FF2115141D00A9920F /* FlatActionSheetDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC487F92115141D00A9920F /* FlatActionSheetDelegate.swift */; };
 		D8FAD73E54E8314A38F4DA05D62C7E8C /* FlatActionSheet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3582BDDB4F6ECDA8F474F6959CBD563 /* FlatActionSheet-dummy.m */; };
 		DC42190B43DA3D07F1F3794D1E96DD75 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		DCCB0602F4D7EBABEDC02E85D1CE99B8 /* FlatActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED02ADBC8B4A46A2C1FA9A4761B3FEC /* FlatActionSheet.swift */; };
@@ -70,13 +70,13 @@
 		B25FBBB529C8624A59F6FC9C36B94366 /* Pods-FlatActionSheet_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlatActionSheet_Tests-dummy.m"; sourceTree = "<group>"; };
 		B4398F69CA2733E2EE7832BB15F67BAE /* Pods-FlatActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlatActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BD26BD878F6E3B2A27785BE4CF787286 /* Pods-FlatActionSheet_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Tests-resources.sh"; sourceTree = "<group>"; };
-		BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetDelegate.swift; sourceTree = "<group>"; };
 		BF5E93A91B1870FA1843427F445C437E /* Pods-FlatActionSheet_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Example-frameworks.sh"; sourceTree = "<group>"; };
-		BF6DF046211234CC00D5403E /* FlatActionSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetAction.swift; sourceTree = "<group>"; };
-		BF6DF048211235DD00D5403E /* FlatActionSheetActionStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetActionStyle.swift; sourceTree = "<group>"; };
-		BF6DF04A2112389A00D5403E /* FlatActionSheetDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetDataSource.swift; sourceTree = "<group>"; };
-		BF6DF04C21125F8400D5403E /* FlatActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetCell.swift; sourceTree = "<group>"; };
-		BF6DF04E2113EDFC00D5403E /* FlatActionSheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatActionSheetConfig.swift; sourceTree = "<group>"; };
+		BFC487F42115141C00A9920F /* FlatActionSheetAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetAction.swift; path = FlatActionSheet/Classes/FlatActionSheetAction.swift; sourceTree = "<group>"; };
+		BFC487F52115141C00A9920F /* FlatActionSheetConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetConfig.swift; path = FlatActionSheet/Classes/FlatActionSheetConfig.swift; sourceTree = "<group>"; };
+		BFC487F62115141C00A9920F /* FlatActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetCell.swift; path = FlatActionSheet/Classes/FlatActionSheetCell.swift; sourceTree = "<group>"; };
+		BFC487F72115141C00A9920F /* FlatActionSheetActionStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetActionStyle.swift; path = FlatActionSheet/Classes/FlatActionSheetActionStyle.swift; sourceTree = "<group>"; };
+		BFC487F82115141C00A9920F /* FlatActionSheetDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetDataSource.swift; path = FlatActionSheet/Classes/FlatActionSheetDataSource.swift; sourceTree = "<group>"; };
+		BFC487F92115141D00A9920F /* FlatActionSheetDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlatActionSheetDelegate.swift; path = FlatActionSheet/Classes/FlatActionSheetDelegate.swift; sourceTree = "<group>"; };
 		C3582BDDB4F6ECDA8F474F6959CBD563 /* FlatActionSheet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlatActionSheet-dummy.m"; sourceTree = "<group>"; };
 		C5E16EB5D357FB1B7B7D03D17B88E37E /* FlatActionSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlatActionSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8BE7D4DFCF41457F0424B662236E0F /* Pods-FlatActionSheet_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlatActionSheet_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -118,12 +118,12 @@
 			isa = PBXGroup;
 			children = (
 				4ED02ADBC8B4A46A2C1FA9A4761B3FEC /* FlatActionSheet.swift */,
-				BF6DF04E2113EDFC00D5403E /* FlatActionSheetConfig.swift */,
-				BF6DF04C21125F8400D5403E /* FlatActionSheetCell.swift */,
-				BF6DF046211234CC00D5403E /* FlatActionSheetAction.swift */,
-				BF6DF048211235DD00D5403E /* FlatActionSheetActionStyle.swift */,
-				BF0C89F0211185AD00CE1716 /* FlatActionSheetDelegate.swift */,
-				BF6DF04A2112389A00D5403E /* FlatActionSheetDataSource.swift */,
+				BFC487F42115141C00A9920F /* FlatActionSheetAction.swift */,
+				BFC487F72115141C00A9920F /* FlatActionSheetActionStyle.swift */,
+				BFC487F62115141C00A9920F /* FlatActionSheetCell.swift */,
+				BFC487F52115141C00A9920F /* FlatActionSheetConfig.swift */,
+				BFC487F82115141C00A9920F /* FlatActionSheetDataSource.swift */,
+				BFC487F92115141D00A9920F /* FlatActionSheetDelegate.swift */,
 				8603C6D6F170AA16CCFEB6979E972D9B /* Pod */,
 				5EDA00195816FD12DE3860694E324121 /* Support Files */,
 			);
@@ -361,14 +361,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF0C89F1211185AD00CE1716 /* FlatActionSheetDelegate.swift in Sources */,
+				BFC487FA2115141D00A9920F /* FlatActionSheetAction.swift in Sources */,
+				BFC487FF2115141D00A9920F /* FlatActionSheetDelegate.swift in Sources */,
 				D8FAD73E54E8314A38F4DA05D62C7E8C /* FlatActionSheet-dummy.m in Sources */,
-				BF6DF04F2113EDFC00D5403E /* FlatActionSheetConfig.swift in Sources */,
-				BF6DF04B2112389A00D5403E /* FlatActionSheetDataSource.swift in Sources */,
-				BF6DF04D21125F8400D5403E /* FlatActionSheetCell.swift in Sources */,
-				BF6DF047211234CC00D5403E /* FlatActionSheetAction.swift in Sources */,
+				BFC487FB2115141D00A9920F /* FlatActionSheetConfig.swift in Sources */,
+				BFC487FC2115141D00A9920F /* FlatActionSheetCell.swift in Sources */,
+				BFC487FD2115141D00A9920F /* FlatActionSheetActionStyle.swift in Sources */,
+				BFC487FE2115141D00A9920F /* FlatActionSheetDataSource.swift in Sources */,
 				DCCB0602F4D7EBABEDC02E85D1CE99B8 /* FlatActionSheet.swift in Sources */,
-				BF6DF049211235DD00D5403E /* FlatActionSheetActionStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

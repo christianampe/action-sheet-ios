@@ -221,15 +221,15 @@ public extension FlatActionSheet {
         
         CATransaction.begin()
         
-        CATransaction.setAnimationDuration(animationDuration)
+        CATransaction.setAnimationDuration(animationDuration/2)
         CATransaction.setAnimationTimingFunction(CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear))
         
         CATransaction.setCompletionBlock { self.removeFromSuperview() }
         
         layer.backgroundColor = backgroundViewColor.withAlphaComponent(backgroundAlphaValue).cgColor
         
-        animateTableView(tableViewTopConstraint, value: 0, for: animationDuration, with: .to)
-        animateBackgroundAlpha(for: animationDuration, value: 0)
+        animateTableView(tableViewTopConstraint, value: 0, for: animationDuration/2, with: .to)
+        animateBackgroundAlpha(for: animationDuration/2, value: 0)
         
         CATransaction.commit()
     }
